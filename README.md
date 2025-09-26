@@ -1,6 +1,6 @@
 # sendablevalue
 
-`sendablevalue` provides type-erased, sendable value wrappers for Swift. It allows you to safely pass values of any type, including hashable types, across concurrency domains.
+`SendableValue` provides type-erased, sendable value wrappers for Swift. It allows you to safely pass values of any type, including hashable types, across concurrency domains.
 
 ## Features
 - Type-erased value wrappers: `SendableValue`, `SendableAnyValue`, `SendableAnyHashableValue`
@@ -14,7 +14,7 @@ import SendableValue
 
 let value = SendableValue(value: 42)
 let anyValue = SendableAnyValue(value: "Hello")
-let hashableValue = SendableAnyHashableValue(anyHashableValue: "Key")
+let hashableValue = SendableAnyHashableValue(value: "Key")
 ```
 
 ## License

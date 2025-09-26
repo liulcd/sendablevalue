@@ -42,11 +42,11 @@ open class SendableAnyValue: NSObject, @unchecked Sendable {
 /// A type-erased AnyHashable value that conforms to Sendable.
 open class SendableAnyHashableValue: NSObject, @unchecked Sendable {
     /// The underlying AnyHashable value.
-    let anyHashableValue: AnyHashable
+    let value: AnyHashable
 
     /// Initializes with an AnyHashable value.
     /// - Parameter value: The AnyHashable value to store.
     init(_ value: AnyHashable) {
-        self.anyHashableValue = value
+        self.value = value
     }
 }
