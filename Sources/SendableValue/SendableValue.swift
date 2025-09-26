@@ -25,6 +25,12 @@ open class SendableValue: NSObject, @unchecked Sendable {
             return self.value as? AnyHashable
         }
     }
+    
+    open var updatedHandlerValue: ((_ value: Any?, _ oldValue: Any?) -> Void)? {
+        get {
+            return self.value as? (_ value: Any?, _ oldValue: Any?) -> Void
+        }
+    }
 }
 
 /// A type-erased value that conforms to Sendable.
@@ -47,6 +53,14 @@ open class SendableAnyHashableValue: NSObject, @unchecked Sendable {
     /// Initializes with an AnyHashable value.
     /// - Parameter value: The AnyHashable value to store.
     public init(_ value: AnyHashable) {
+        self.value = value
+    }
+}
+
+open class SendableUpdatedHandlerValue: NSObject, @unchecked Sendable {
+    public let value: (_ value: Any?, _ oldValue: Any?) -> Void
+    
+    public init(value: @escaping (_ value: Any?, _ oldValue: Any?) -> Void) {
         self.value = value
     }
 }
