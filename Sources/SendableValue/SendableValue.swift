@@ -67,7 +67,7 @@ open class SendableUpdatedHandlerValue: NSObject, @unchecked Sendable {
 
     /// Initializes with an update handler closure.
     /// - Parameter value: The closure to store, which takes new and old values.
-    public init(value: @escaping (_ value: Any?, _ oldValue: Any?) -> Void) {
+    public init(_ value: @escaping (_ value: Any?, _ oldValue: Any?) -> Void) {
         self.value = value
     }
 }
