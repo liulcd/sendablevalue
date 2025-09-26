@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-  `SendableValue` provides type-erased, sendable value wrappers for Swift. It allows you to safely pass values of any type, including hashable types and closures, across concurrency domains. Includes wrappers for Any, AnyHashable, optional values, and update handler closures, all conforming to Sendable. Classes include `SendableValue`, `SendableAnyValue`, `SendableAnyHashableValue`, and `SendableUpdatedHandlerValue`.
+  `SendableValue` provides type-erased, sendable value wrappers for Swift. It allows you to safely pass values of any type, including hashable types and closures, across concurrency domains. Includes wrappers for Any, AnyHashable, optional values, update handler closures, and result handler closures, all conforming to Sendable. Classes include `SendableValue`, `SendableAnyValue`, `SendableAnyHashableValue`, `SendableUpdatedHandlerValue`, and `SendableResultHandlerValue`.
   DESC
 
   spec.homepage     = "https://github.com/liulcd/sendablevalue"

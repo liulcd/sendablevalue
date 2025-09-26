@@ -33,6 +33,14 @@ open class SendableValue: NSObject, @unchecked Sendable {
             return self.value as? (_ value: Any?, _ oldValue: Any?) -> Void
         }
     }
+    
+    /// Returns the value as a result handler closure if possible, otherwise nil.
+    /// The closure takes a result and an error (NSError) as parameters.
+    open var resultHandlerValue: ((_ result: Any?, _ error: NSError?) -> Void)? {
+        get {
+            return self.value as? (_ result: Any?, _ error: NSError?) -> Void
+        }
+    }
 }
 
 /// A type-erased value that conforms to Sendable.
@@ -68,6 +76,19 @@ open class SendableUpdatedHandlerValue: NSObject, @unchecked Sendable {
     /// Initializes with an update handler closure.
     /// - Parameter value: The closure to store, which takes new and old values.
     public init(_ value: @escaping (_ value: Any?, _ oldValue: Any?) -> Void) {
+        self.value = value
+    }
+}
+
+/// A type-erased sendable wrapper for result handler closures.
+/// This class stores a closure that takes a result (optional) and an error (NSError, optional), and returns void.
+open class SendableResultHandlerValue: NSObject, @unchecked Sendable {
+    /// The stored result handler closure.
+    public let value: (_ result: Any?, _ error: NSError?) -> Void
+
+    /// Initializes with a result handler closure.
+    /// - Parameter value: The closure to store, which takes a result and an error.
+    public init(_ value: @escaping (_ result: Any?, _ error: NSError?) -> Void) {
         self.value = value
     }
 }
