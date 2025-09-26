@@ -15,7 +15,7 @@ open class SendableValue: NSObject, @unchecked Sendable {
 
     /// Initializes with an optional value.
     /// - Parameter value: The value to store.
-    init(value: Any?) {
+    init(_ value: Any?) {
         self.value = value
     }
 
@@ -34,7 +34,7 @@ open class SendableAnyValue: NSObject, @unchecked Sendable {
 
     /// Initializes with a value.
     /// - Parameter value: The value to store.
-    init(value: Any) {
+    init(_ value: Any) {
         self.value = value
     }
 }
@@ -45,8 +45,8 @@ open class SendableAnyHashableValue: NSObject, @unchecked Sendable {
     let anyHashableValue: AnyHashable
 
     /// Initializes with an AnyHashable value.
-    /// - Parameter anyHashableValue: The AnyHashable value to store.
-    init(anyHashableValue: AnyHashable) {
-        self.anyHashableValue = anyHashableValue
+    /// - Parameter value: The AnyHashable value to store.
+    init(_ value: AnyHashable) {
+        self.anyHashableValue = value
     }
 }
