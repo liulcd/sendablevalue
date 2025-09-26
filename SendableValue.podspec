@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SendableValue"
-  spec.version      = "1.0.4"
+  spec.version      = "1.1.0"
   spec.summary      = "Type-erased, sendable value wrappers for Swift concurrency."
 
   # This description is used to generate tags and improve search results.
