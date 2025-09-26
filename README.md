@@ -12,9 +12,9 @@
 ```swift
 import SendableValue
 
-let value = SendableValue(value: 42)
-let anyValue = SendableAnyValue(value: "Hello")
-let hashableValue = SendableAnyHashableValue(value: "Key")
+let value = SendableValue(42)
+let anyValue = SendableAnyValue("Hello")
+let hashableValue = SendableAnyHashableValue("Key")
 ```
 
 ## License
