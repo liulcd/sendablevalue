@@ -8,7 +8,12 @@
 
 import Foundation
 
-/// A type-erased, optionally hashable value that conforms to Sendable.
+/// A type-erased, optionally hashable value container that conforms to Sendable.
+///
+/// `SendableValue` is designed to safely wrap any value (including optionals) for use in Swift concurrency contexts.
+/// It provides convenient computed properties to access the underlying value as an `AnyHashable`,
+/// an update handler closure, or a result handler closure, if the stored value matches those types.
+/// This enables flexible, type-erased value passing between threads or actors, while maintaining type safety where possible.
 open class SendableValue: NSObject, @unchecked Sendable {
     /// The underlying value, can be any type or nil.
     public let value: Any?
