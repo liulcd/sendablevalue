@@ -11,16 +11,16 @@ import Foundation
 /// A type-erased, optionally hashable value that conforms to Sendable.
 open class SendableValue: NSObject, @unchecked Sendable {
     /// The underlying value, can be any type or nil.
-    let value: Any?
+    public let value: Any?
 
     /// Initializes with an optional value.
     /// - Parameter value: The value to store.
-    init(_ value: Any?) {
+    public init(_ value: Any?) {
         self.value = value
     }
 
     /// Returns the value as AnyHashable if possible, otherwise nil.
-    var anyHashableValue: AnyHashable? {
+    open var anyHashableValue: AnyHashable? {
         get {
             return self.value as? AnyHashable
         }
@@ -30,11 +30,11 @@ open class SendableValue: NSObject, @unchecked Sendable {
 /// A type-erased value that conforms to Sendable.
 open class SendableAnyValue: NSObject, @unchecked Sendable {
     /// The underlying value of any type.
-    let value: Any
+    public let value: Any
 
     /// Initializes with a value.
     /// - Parameter value: The value to store.
-    init(_ value: Any) {
+    public init(_ value: Any) {
         self.value = value
     }
 }
@@ -42,11 +42,11 @@ open class SendableAnyValue: NSObject, @unchecked Sendable {
 /// A type-erased AnyHashable value that conforms to Sendable.
 open class SendableAnyHashableValue: NSObject, @unchecked Sendable {
     /// The underlying AnyHashable value.
-    let value: AnyHashable
+    public let value: AnyHashable
 
     /// Initializes with an AnyHashable value.
     /// - Parameter value: The AnyHashable value to store.
-    init(_ value: AnyHashable) {
+    public init(_ value: AnyHashable) {
         self.value = value
     }
 }
