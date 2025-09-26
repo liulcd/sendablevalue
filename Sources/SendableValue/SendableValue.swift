@@ -26,6 +26,8 @@ open class SendableValue: NSObject, @unchecked Sendable {
         }
     }
     
+    /// Returns the value as an update handler closure if possible, otherwise nil.
+    /// The closure takes the new value and the old value as parameters.
     open var updatedHandlerValue: ((_ value: Any?, _ oldValue: Any?) -> Void)? {
         get {
             return self.value as? (_ value: Any?, _ oldValue: Any?) -> Void
@@ -57,9 +59,14 @@ open class SendableAnyHashableValue: NSObject, @unchecked Sendable {
     }
 }
 
+/// A type-erased sendable wrapper for update handler closures.
+/// This class stores a closure that takes a new value and an old value, both optional, and returns void.
 open class SendableUpdatedHandlerValue: NSObject, @unchecked Sendable {
+    /// The stored update handler closure.
     public let value: (_ value: Any?, _ oldValue: Any?) -> Void
-    
+
+    /// Initializes with an update handler closure.
+    /// - Parameter value: The closure to store, which takes new and old values.
     public init(value: @escaping (_ value: Any?, _ oldValue: Any?) -> Void) {
         self.value = value
     }
