@@ -47,6 +47,8 @@ open class SendableValue: NSObject, @unchecked Sendable {
         }
     }
     
+    /// Returns the value as a parameters dictionary if possible, otherwise nil.
+    /// The dictionary contains `AnyHashable` keys and optional values, suitable for passing arbitrary parameters.
     open var parametersValue: [AnyHashable: Any?]? {
         get {
             return self.value as? [AnyHashable: Any?]
