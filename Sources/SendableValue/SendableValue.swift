@@ -46,6 +46,12 @@ open class SendableValue: NSObject, @unchecked Sendable {
             return self.value as? (_ result: Any?, _ error: NSError?) -> Void
         }
     }
+    
+    open var parametersValue: [AnyHashable: Any?]? {
+        get {
+            return self.value as? [AnyHashable: Any?]
+        }
+    }
 }
 
 /// A type-erased value that conforms to Sendable.
@@ -94,6 +100,19 @@ open class SendableResultHandlerValue: NSObject, @unchecked Sendable {
     /// Initializes with a result handler closure.
     /// - Parameter value: The closure to store, which takes a result and an error.
     public init(_ value: @escaping (_ result: Any?, _ error: NSError?) -> Void) {
+        self.value = value
+    }
+}
+
+/// A type-erased sendable wrapper for parameter dictionaries.
+/// This class stores a dictionary with `AnyHashable` keys and optional values, allowing safe transfer of arbitrary parameters across concurrency domains.
+open class SendableParametersValue: NSObject, @unchecked Sendable {
+    /// The stored parameters dictionary.
+    public let value: [AnyHashable: Any?]
+
+    /// Initializes with a parameters dictionary.
+    /// - Parameter value: The dictionary to store, with `AnyHashable` keys and optional values.
+    public init(value: [AnyHashable : Any?]) {
         self.value = value
     }
 }

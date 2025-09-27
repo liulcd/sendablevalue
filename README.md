@@ -4,7 +4,7 @@
 `SendableValue` provides type-erased, sendable value wrappers for Swift. It allows you to safely pass values of any type, including hashable types and closures, across concurrency domains.
 
 ## Features
-- Type-erased value wrappers: `SendableValue`, `SendableAnyValue`, `SendableAnyHashableValue`, `SendableUpdatedHandlerValue`
+- Type-erased value wrappers: `SendableValue`, `SendableAnyValue`, `SendableAnyHashableValue`, `SendableUpdatedHandlerValue`, `SendableResultHandlerValue`, `SendableParametersValue`
 - Safe for use with Swift concurrency
 - Simple API for storing and retrieving values
 
@@ -36,6 +36,9 @@ let resultHandler: (_ result: Any?, _ error: NSError?) -> Void = { result, error
 	}
 }
 let sendableResultHandler = SendableResultHandlerValue(resultHandler)
+// Store a parameters dictionary
+let parameters: [AnyHashable: Any?] = ["key1": 123, "key2": "abc", "key3": nil]
+let sendableParameters = SendableParametersValue(value: parameters)
 ```
 
 ## API Overview
@@ -45,6 +48,7 @@ let sendableResultHandler = SendableResultHandlerValue(resultHandler)
 - `SendableAnyHashableValue`: Type-erased value for any `AnyHashable`.
 - `SendableUpdatedHandlerValue`: Stores a closure for value update handling.
 - `SendableResultHandlerValue`: Stores a closure for result handling (result and error), type-erased and sendable.
+- `SendableParametersValue`: Stores a dictionary of parameters with `AnyHashable` keys and optional values, type-erased and sendable.
 
 ## License
 This project is licensed under the terms of the MIT license. See the [LICENSE](LICENSE) file for details.
