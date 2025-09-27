@@ -54,6 +54,14 @@ open class SendableValue: NSObject, @unchecked Sendable {
             return self.value as? [AnyHashable: Any?]
         }
     }
+    
+    /// Returns the value as an array of values if possible, otherwise nil.
+    /// The array contains elements of any type, suitable for passing heterogeneous collections.
+    open var datasValue: [Any?]? {
+        get {
+            return self.value as? [Any?]
+        }
+    }
 }
 
 /// A type-erased value that conforms to Sendable.
@@ -115,6 +123,19 @@ open class SendableParametersValue: NSObject, @unchecked Sendable {
     /// Initializes with a parameters dictionary.
     /// - Parameter value: The dictionary to store, with `AnyHashable` keys and optional values.
     public init(value: [AnyHashable : Any?]) {
+        self.value = value
+    }
+}
+
+/// A type-erased sendable wrapper for arrays of values.
+/// This class stores an array of values of any type, allowing safe transfer of heterogeneous collections across concurrency domains.
+open class SendableDatasValue: NSObject, @unchecked Sendable {
+    /// The stored array of values.
+    public let value: [Any?]
+
+    /// Initializes with an array of values.
+    /// - Parameter value: The array to store, containing elements of any type.
+    public init(_ value: [Any?]) {
         self.value = value
     }
 }

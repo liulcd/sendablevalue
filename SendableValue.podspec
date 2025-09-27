@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SendableValue"
-  spec.version      = "1.2.0"
+  spec.version      = "1.3.0"
   spec.summary      = "Type-erased, sendable value wrappers for Swift concurrency."
 
   # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-  `SendableValue` provides type-erased, sendable value wrappers for Swift. It allows you to safely pass values of any type, including hashable types, closures, and parameter dictionaries, across concurrency domains. Includes wrappers for Any, AnyHashable, optional values, update handler closures, result handler closures, and parameter dictionaries, all conforming to Sendable. Classes include `SendableValue`, `SendableAnyValue`, `SendableAnyHashableValue`, `SendableUpdatedHandlerValue`, `SendableResultHandlerValue`, and `SendableParametersValue`.
+  `SendableValue` provides type-erased, sendable value wrappers for Swift. It allows you to safely pass values of any type, including hashable types, closures, parameter dictionaries, and arrays, across concurrency domains. Includes wrappers for Any, AnyHashable, optional values, update handler closures, result handler closures, parameter dictionaries, and arrays, all conforming to Sendable. Classes include `SendableValue`, `SendableAnyValue`, `SendableAnyHashableValue`, `SendableUpdatedHandlerValue`, `SendableResultHandlerValue`, `SendableParametersValue`, and `SendableDatasValue`.
   DESC
 
   spec.homepage     = "https://github.com/liulcd/sendablevalue"
